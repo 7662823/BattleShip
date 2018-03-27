@@ -1,4 +1,6 @@
 using SwinGameSDK;
+using System.Collections.Generic;
+using System;
 
 /// <summary>
 /// The battle phase is handled by the DiscoveryController.
@@ -15,7 +17,7 @@ class DiscoveryController
 	/// </remarks>
 	public void HandleDiscoveryInput()
 	{
-		if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE)) {
+		if (SwinGame.KeyTyped(KeyCode.EscapeKey)) {
 			AddNewState(GameState.ViewingGameMenu);
 		}
 
@@ -56,7 +58,7 @@ class DiscoveryController
 		const int HITS_TOP = 206;
 		const int SPLASH_TOP = 256;
 
-		if ((SwinGame.KeyDown(KeyCode.VK_LSHIFT) | SwinGame.KeyDown(KeyCode.VK_RSHIFT)) & SwinGame.KeyDown(KeyCode.VK_C)) {
+		if ((SwinGame.KeyDown(KeyCode.LeftShiftKey) | SwinGame.KeyDown(KeyCode.RightShiftKey)) & SwinGame.KeyDown(KeyCode.CKey)) {
 			DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, true);
 		} else {
 			DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, false);

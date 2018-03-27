@@ -63,7 +63,7 @@ public class GameResources
 
 	public Font GameFont(string font)
 	{
-		return _Fonts(font);
+		return _Fonts[font];
 	}
 
 	/// <summary>
@@ -74,7 +74,7 @@ public class GameResources
 
 	public Bitmap GameImage(string image)
 	{
-		return _Images(image);
+		return _Images[image];
 	}
 
 	/// <summary>
@@ -85,7 +85,7 @@ public class GameResources
 
 	public SoundEffect GameSound(string sound)
 	{
-		return _Sounds(sound);
+		return _Sounds[sound];
 	}
 
 	/// <summary>
@@ -96,7 +96,7 @@ public class GameResources
 
 	public Music GameMusic(string music)
 	{
-		return _Music(music);
+		return _Music[music];
 	}
 
 	private Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
@@ -197,7 +197,7 @@ public class GameResources
 		const int BG_Y = 453;
 
 		int fullW;
-		Rectangle toDraw;
+		Rectangle toDraw = new Rectangle();
 
 		fullW = 260 * number / STEPS;
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);

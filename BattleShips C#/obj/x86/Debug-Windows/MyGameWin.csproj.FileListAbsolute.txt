@@ -54,7 +54,4 @@ C:\Users\user\OneDrive\Documents\DevProject\Week 4\GameTemplate\obj\x86\Debug-Wi
 C:\Users\user\OneDrive\Documents\DevProject\Week 4\GameTemplate\obj\x86\Debug-Windows\MyGameWin.csproj.CopyComplete
 C:\Users\user\OneDrive\Documents\DevProject\Week 4\GameTemplate\obj\x86\Debug-Windows\MyGame.exe
 C:\Users\user\OneDrive\Documents\DevProject\Week 4\GameTemplate\obj\x86\Debug-Windows\MyGame.pdb
-C:\Users\user\OneDrive\Documents\DevProject\Week 4\BattleShip\BattleShips C#\obj\x86\Debug-Windows\MyGameWin.csprojResolveAssemblyReference.cache
 C:\Users\user\OneDrive\Documents\DevProject\Week 4\BattleShip\BattleShips C#\obj\x86\Debug-Windows\MyGameWin.csproj.CoreCompileInputs.cache
-C:\Users\user\OneDrive\Documents\DevProject\Week 4\BattleShip\BattleShips C#\obj\x86\Debug-Windows\MyGame.exe
-C:\Users\user\OneDrive\Documents\DevProject\Week 4\BattleShip\BattleShips C#\obj\x86\Debug-Windows\MyGame.pdb

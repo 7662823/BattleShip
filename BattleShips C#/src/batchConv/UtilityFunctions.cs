@@ -1,3 +1,4 @@
+using SwinGameSDK;
 /// <summary>
 /// This includes a number of utility methods for
 /// drawing and interacting with the Mouse.
@@ -121,7 +122,7 @@ class UtilityFunctions
 			for (int col = 0; col <= 9; col++) {
 				colLeft = left + (cellGap + cellWidth) * col;
 
-				Color fillColor;
+				Color fillColor = new Color(0);
 				bool draw;
 
 				draw = true;
@@ -129,24 +130,29 @@ class UtilityFunctions
 				switch (grid.Item(row, col)) {
 					case TileView.Ship:
 						draw = false;
-					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
-					case TileView.Miss:
+                        break;
+                    //If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
+                    case TileView.Miss:
 						if (small)
 							fillColor = SMALL_MISS;
 						else
 							fillColor = LARGE_MISS;
-					case TileView.Hit:
+                        break;
+                    case TileView.Hit:
 						if (small)
 							fillColor = SMALL_HIT;
 						else
 							fillColor = LARGE_HIT;
-					case TileView.Sea:
-					case TileView.Ship:
+                        break;
+                    case TileView.Sea:
+                        break;
+                    case TileView.Ship:
 						if (small)
 							fillColor = SMALL_SEA;
 						else
 							draw = false;
-				}
+                        break;
+                }
 
 				if (draw) {
 					SwinGame.FillRectangle(fillColor, colLeft, rowTop, cellWidth, cellHeight);
@@ -224,14 +230,18 @@ class UtilityFunctions
 			case GameState.AlteringSettings:
 			case GameState.ViewingHighScores:
 				SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
+                break;
 			case GameState.Discovering:
 			case GameState.EndingGame:
 				SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
-			case GameState.Deploying:
+                break;
+            case GameState.Deploying:
 				SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
-			default:
+                break;
+            default:
 				SwinGame.ClearScreen();
-		}
+                break;
+        }
 
 		SwinGame.DrawFramerate(675, 585);
 	}

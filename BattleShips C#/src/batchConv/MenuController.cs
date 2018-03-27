@@ -104,14 +104,14 @@ class MenuController
 	/// <returns>false if a clicked missed the buttons. This can be used to check prior menus.</returns>
 	private bool HandleMenuInput(int menu, int level, int xOffset)
 	{
-		if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE)) {
+		if (SwinGame.KeyTyped(KeyCode.EscapeKey)) {
 			EndCurrentState();
 			return true;
 		}
 
 		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
 			int i;
-			for (i = 0; i <= _menuStructure(menu).Length - 1; i++) {
+			for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
 				//IsMouseOver the i'th button of the menu
 				if (IsMouseOverMenu(i, level, xOffset)) {
 					PerformMenuAction(menu, i);
@@ -192,7 +192,7 @@ class MenuController
 
 		btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
 		int i;
-		for (i = 0; i <= _menuStructure(menu).Length - 1; i++) {
+		for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
 			int btnLeft;
 
 			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
@@ -201,7 +201,7 @@ class MenuController
 			toDraw.Y = btnTop + TEXT_OFFSET;
 			toDraw.Width = BUTTON_WIDTH;
 			toDraw.Height = BUTTON_HEIGHT;
-			SwinGame.DrawTextLines(_menuStructure(menu)(i), MENU_COLOR, Color.Black, GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
+			SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
 
 			if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset)) {
 				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -244,12 +244,15 @@ class MenuController
 		switch (menu) {
 			case MAIN_MENU:
 				PerformMainMenuAction(button);
+                break;
 			case SETUP_MENU:
 				PerformSetupMenuAction(button);
-			case GAME_MENU:
+                break;
+            case GAME_MENU:
 				PerformGameMenuAction(button);
-		}
-	}
+                break;
+        }
+    }
 
 	/// <summary>
 	/// The main menu was clicked, perform the button's action.
@@ -260,13 +263,17 @@ class MenuController
 		switch (button) {
 			case MAIN_MENU_PLAY_BUTTON:
 				StartGame();
-			case MAIN_MENU_SETUP_BUTTON:
+                break;
+            case MAIN_MENU_SETUP_BUTTON:
 				AddNewState(GameState.AlteringSettings);
-			case MAIN_MENU_TOP_SCORES_BUTTON:
+                break;
+            case MAIN_MENU_TOP_SCORES_BUTTON:
 				AddNewState(GameState.ViewingHighScores);
-			case MAIN_MENU_QUIT_BUTTON:
+                break;
+            case MAIN_MENU_QUIT_BUTTON:
 				EndCurrentState();
-		}
+                break;
+        }
 	}
 
 	/// <summary>
@@ -278,11 +285,14 @@ class MenuController
 		switch (button) {
 			case SETUP_MENU_EASY_BUTTON:
 				SetDifficulty(AIOption.Hard);
-			case SETUP_MENU_MEDIUM_BUTTON:
+                break;
+            case SETUP_MENU_MEDIUM_BUTTON:
 				SetDifficulty(AIOption.Hard);
-			case SETUP_MENU_HARD_BUTTON:
+                break;
+            case SETUP_MENU_HARD_BUTTON:
 				SetDifficulty(AIOption.Hard);
-		}
+                break;
+        }
 		//Always end state - handles exit button as well
 		EndCurrentState();
 	}
@@ -296,13 +306,16 @@ class MenuController
 		switch (button) {
 			case GAME_MENU_RETURN_BUTTON:
 				EndCurrentState();
-			case GAME_MENU_SURRENDER_BUTTON:
+                break;
+            case GAME_MENU_SURRENDER_BUTTON:
 				EndCurrentState();
 				//end game menu
 				//end game
 				EndCurrentState();
-			case GAME_MENU_QUIT_BUTTON:
+                break;
+            case GAME_MENU_QUIT_BUTTON:
 				AddNewState(GameState.Quitting);
-		}
+                break;
+        }
 	}
 }

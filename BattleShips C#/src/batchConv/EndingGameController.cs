@@ -1,4 +1,6 @@
 using SwinGameSDK;
+using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// The EndingGameController is responsible for managing the interactions at the end
@@ -14,7 +16,7 @@ class EndingGameController
 	public void DrawEndOfGame()
 	{
 
-		Rectangle toDraw;
+		Rectangle toDraw = new Rectangle();
 		string whatShouldIPrint;
 
 		DrawField(ComputerPlayer.PlayerGrid, ComputerPlayer, true);
@@ -42,7 +44,7 @@ class EndingGameController
 	/// </summary>
 	public void HandleEndOfGameInput()
 	{
-		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.VK_RETURN) || SwinGame.KeyTyped(KeyCode.VK_ESCAPE)) {
+		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.ReturnKey) || SwinGame.KeyTyped(KeyCode.EscapeKey)) {
 			ReadHighScore(HumanPlayer.Score);
 			EndCurrentState();
 		}

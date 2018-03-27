@@ -1,5 +1,6 @@
 using SwinGameSDK;
-
+using System;
+using System.Collections.Generic;
 /// <summary>
 /// The DeploymentController controls the players actions
 /// during the deployment phase.
@@ -40,18 +41,18 @@ class DeploymentController
 	/// </remarks>
 	public void HandleDeploymentInput()
 	{
-		if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE)) {
+		if (SwinGame.KeyTyped(KeyCode.EscapeKey)) {
 			AddNewState(GameState.ViewingGameMenu);
 		}
 
-		if (SwinGame.KeyTyped(KeyCode.VK_UP) | SwinGame.KeyTyped(KeyCode.VK_DOWN)) {
+		if (SwinGame.KeyTyped(KeyCode.UpKey) | SwinGame.KeyTyped(KeyCode.DownKey)) {
 			_currentDirection = Direction.UpDown;
 		}
-		if (SwinGame.KeyTyped(KeyCode.VK_LEFT) | SwinGame.KeyTyped(KeyCode.VK_RIGHT)) {
+		if (SwinGame.KeyTyped(KeyCode.LeftKey) | SwinGame.KeyTyped(KeyCode.VK_RIGHT)) {
 			_currentDirection = Direction.LeftRight;
 		}
 
-		if (SwinGame.KeyTyped(KeyCode.VK_R)) {
+		if (SwinGame.KeyTyped(KeyCode.RKey)) {
 			HumanPlayer.RandomizeDeployment();
 		}
 
