@@ -46,6 +46,22 @@
     <Compile Include="src\batchConv\GameState.cs" />
     <Compile Include="src\batchConv\HighScoreController.cs" />
     <Compile Include="src\batchConv\MenuController.cs" />
+    <Compile Include="src\batchConv\Model\AIHardPlayer.cs" />
+    <Compile Include="src\batchConv\Model\AIMediumPlayer.cs" />
+    <Compile Include="src\batchConv\Model\AIOption.cs" />
+    <Compile Include="src\batchConv\Model\AIPlayer.cs" />
+    <Compile Include="src\batchConv\Model\AttackResult.cs" />
+    <Compile Include="src\batchConv\Model\BattleShipsGame.cs" />
+    <Compile Include="src\batchConv\Model\Direction.cs" />
+    <Compile Include="src\batchConv\Model\ISeaGrid.cs" />
+    <Compile Include="src\batchConv\Model\Player.cs" />
+    <Compile Include="src\batchConv\Model\ResultOfAttack.cs" />
+    <Compile Include="src\batchConv\Model\SeaGrid.cs" />
+    <Compile Include="src\batchConv\Model\SeaGridAdapter.cs" />
+    <Compile Include="src\batchConv\Model\Ship.cs" />
+    <Compile Include="src\batchConv\Model\ShipName.cs" />
+    <Compile Include="src\batchConv\Model\Tile.cs" />
+    <Compile Include="src\batchConv\Model\TileView.cs" />
     <Compile Include="src\batchConv\UtilityFunctions.cs" />
     <Compile Include="src\GameMain.cs" />
   </ItemGroup>
@@ -62,9 +78,7 @@
     </None>
     <WinLibs Include="lib\win32\*.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\batchConv\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Target Name="CopyLibsToOut">
     <Copy SourceFiles="@(WinLibs)" DestinationFolder="$(OutDir)" />
   </Target>

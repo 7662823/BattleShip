@@ -1,3 +1,6 @@
+using SwinGameSDK;
+using System.Collections.Generic;
+
 class GameLogic
 {
 	public void Main()
