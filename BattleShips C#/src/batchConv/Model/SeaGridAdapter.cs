@@ -1,3 +1,4 @@
+using System;
 /// <summary>
 /// The SeaGridAdapter allows for the change in a sea grid view. Whenever a ship is
 /// presented it changes the view into a sea tile instead of a ship tile.
@@ -28,8 +29,8 @@ public class SeaGridAdapter : ISeaGrid
 			Changed(this, e);
 		}
 	}
-
-	#Region "ISeaGrid Members"
+    //test
+	#region "ISeaGrid Members"
 
 	/// <summary>
 	/// Changes the discovery grid. Where there is a ship we will sea water
@@ -78,6 +79,6 @@ public class SeaGridAdapter : ISeaGrid
 	{
 		return _MyGrid.HitTile(row, col);
 	}
-	#End Region
+	#endregion
 
 }
