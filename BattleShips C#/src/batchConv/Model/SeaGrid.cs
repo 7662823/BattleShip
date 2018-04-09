@@ -57,7 +57,7 @@ namespace BattleShip {
         /// <param name="y">y coordiante of the tile</param>
         /// <returns></returns>
         public TileView ISeaGrid.Item {
-            get { return _GameTiles(x, y).View; }
+            get { return _GameTiles[x, y].View; }
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace BattleShip {
             int i;
             for (i = 0; i <= Width - 1; i++) {
                 for (int j = 0; j <= Height - 1; j++) {
-                    _GameTiles(i, j) = new Tile(i, j, null);
+                    _GameTiles[i, j] = new Tile(i, j, null);
                 }
             }
 
@@ -100,7 +100,7 @@ namespace BattleShip {
         /// <param name="direction">the direction the ship is going</param>
         public void MoveShip(int row, int col, ShipName ship, Direction direction)
         {
-            Ship newShip = _Ships(ship);
+            Ship newShip = _Ships[ship];
             newShip.Remove();
             AddShip(row, col, direction, newShip);
         }
@@ -166,22 +166,22 @@ namespace BattleShip {
         {
             try {
                 //tile is already hit
-                if (_GameTiles(row, col).Shot) {
+                if (_GameTiles[row, col].Shot) {
                     return new AttackResult(ResultOfAttack.ShotAlready, "have already attacked [" + col + "," + row + "]!", row, col);
                 }
 
-                _GameTiles(row, col).Shoot();
+                _GameTiles[row, col].Shoot();
 
                 //there is no ship on the tile
-                if (_GameTiles(row, col).Ship == null) {
+                if (_GameTiles[row, col].Ship == null) {
                     return new AttackResult(ResultOfAttack.Miss, "missed", row, col);
                 }
 
                 //all ship's tiles have been destroyed
-                if (_GameTiles(row, col).Ship.IsDestroyed) {
-                    _GameTiles(row, col).Shot = true;
+                if (_GameTiles[row, col].Ship.IsDestroyed) {
+                    _GameTiles[row, col].Shot = true;
                     _ShipsKilled += 1;
-                    return new AttackResult(ResultOfAttack.Destroyed, _GameTiles(row, col).Ship, "destroyed the enemy's", row, col);
+                    return new AttackResult(ResultOfAttack.Destroyed, _GameTiles[row, col].Ship, "destroyed the enemy's", row, col);
                 }
 
                 //else hit but not destroyed
