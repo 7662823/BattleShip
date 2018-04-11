@@ -20,23 +20,23 @@ namespace BattleShip
         /// Escape opens the game menu. Clicking the mouse will
         /// attack a location.
         /// </remarks>
-        public void HandleDiscoveryInput()
+        public void HandleDiscoveryInput(GameController con)
         {
             if (SwinGame.KeyTyped(KeyCode.EscapeKey))
             {
-                AddNewState(GameState.ViewingGameMenu);
+                con.AddNewState(GameState.ViewingGameMenu);
             }
 
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
-                DoAttack();
+                DoAttack(con);
             }
         }
 
         /// <summary>
         /// Attack the location that the mouse if over.
         /// </summary>
-        private void DoAttack()
+        private void DoAttack(GameController con)
         {
             Point2D mouse;
 
@@ -48,11 +48,11 @@ namespace BattleShip
             row = Convert.ToInt32(Math.Floor((mouse.Y - FIELD_TOP) / (CELL_HEIGHT + CELL_GAP)));
             col = Convert.ToInt32(Math.Floor((mouse.X - FIELD_LEFT) / (CELL_WIDTH + CELL_GAP)));
 
-            if (row >= 0 & row < HumanPlayer.EnemyGrid.Height)
+            if (row >= 0 & row < con.HumanPlayer.EnemyGrid.Height)
             {
-                if (col >= 0 & col < HumanPlayer.EnemyGrid.Width)
+                if (col >= 0 & col < con.HumanPlayer.EnemyGrid.Width)
                 {
-                    Attack(row, col);
+                    con.Attack(row, col);
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace BattleShip
         /// <summary>
         /// Draws the game during the attack phase.
         /// </summary>s
-        public void DrawDiscovery()
+        public void DrawDiscovery(GameController con)
         {
             const int SCORES_LEFT = 172;
             const int SHOTS_TOP = 157;
@@ -69,19 +69,19 @@ namespace BattleShip
 
             if ((SwinGame.KeyDown(KeyCode.LeftShiftKey) | SwinGame.KeyDown(KeyCode.RightShiftKey)) & SwinGame.KeyDown(KeyCode.CKey))
             {
-                DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, true);
+                con._utility.DrawField(con.HumanPlayer.EnemyGrid, con.ComputerPlayer, true, con);
             }
             else
             {
-                DrawField(HumanPlayer.EnemyGrid, ComputerPlayer, false);
+                con._utility.DrawField(con.HumanPlayer.EnemyGrid, con.ComputerPlayer, false, con);
             }
 
-            DrawSmallField(HumanPlayer.PlayerGrid, HumanPlayer);
-            DrawMessage();
+            con._utility.DrawSmallField(con.HumanPlayer.PlayerGrid, con.HumanPlayer, con);
+            con._utility.DrawMessage(con);
 
-            SwinGame.DrawText(HumanPlayer.Shots.ToString(), Color.White, GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
-            SwinGame.DrawText(HumanPlayer.Hits.ToString(), Color.White, GameFont("Menu"), SCORES_LEFT, HITS_TOP);
-            SwinGame.DrawText(HumanPlayer.Missed.ToString(), Color.White, GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
+            SwinGame.DrawText(con.HumanPlayer.Shots.ToString(), Color.White, con._resources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);
+            SwinGame.DrawText(con.HumanPlayer.Hits.ToString(), Color.White, con._resources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
+            SwinGame.DrawText(con.HumanPlayer.Missed.ToString(), Color.White, con._resources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
         }
 
     }

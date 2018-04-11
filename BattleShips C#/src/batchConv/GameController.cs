@@ -15,14 +15,14 @@ namespace BattleShip
     public class GameController
     {
 
-        private  BattleShipsGame _theGame;
-        private  Player _human;
+        private BattleShipsGame _theGame;
+        private Player _human;
 
-        private  AIPlayer _ai;
+        private AIPlayer _ai;
 
-        private  Stack<GameState> _state = new Stack<GameState>();
+        private Stack<GameState> _state = new Stack<GameState>();
 
-        private  AIOption _aiSetting;
+        private AIOption _aiSetting;
         /// <summary>
         /// Returns the current state of the game, indicating which screen is
         /// currently being used
@@ -32,17 +32,22 @@ namespace BattleShip
         /// 
 
         public GameResources _resources;
-        private UtilityFunctions _utility;
+        public UtilityFunctions _utility;
         private MenuController _menu;
         private DeploymentController _deployment;
         private DiscoveryController _discovery;
         private EndingGameController _endGame;
-        private HighScoreController _highScore;
+        public HighScoreController _highScore;
 
+        //public UtilityFunctions Utility {
+        //    get {
+        //        return _utility;
+        //    }
+        //}
 
-            public void ConInit()
+            public GameController(GameResources res)
         {
-            _resources = new GameResources();
+            _resources = res;
             _utility = new UtilityFunctions();
             _menu = new MenuController();
             _deployment = new DeploymentController();
@@ -149,7 +154,7 @@ namespace BattleShip
         {
             if (showAnimation)
             {
-                _utility.AddExplosion(row, column);
+                _utility.AddExplosion(row, column, this);
             }
 
             Audio.PlaySoundEffect(_resources.GameSound("Hit"));
@@ -161,7 +166,7 @@ namespace BattleShip
         {
             if (showAnimation)
             {
-                _utility.AddSplash(row, column);
+                _utility.AddSplash(row, column, this);
             }
 
             Audio.PlaySoundEffect(_resources.GameSound("Miss"));
@@ -312,25 +317,25 @@ namespace BattleShip
             switch (CurrentState)
             {
                 case GameState.ViewingMainMenu:
-                    _menu.HandleMainMenuInput();
+                    _menu.HandleMainMenuInput(this);
                     break;
                 case GameState.ViewingGameMenu:
-                    _menu.HandleGameMenuInput();
+                    _menu.HandleGameMenuInput(this);
                     break;
                 case GameState.AlteringSettings:
-                    _menu.HandleSetupMenuInput();
+                    _menu.HandleSetupMenuInput(this);
                     break;
                 case GameState.Deploying:
-                    _deployment.HandleDeploymentInput();
+                    _deployment.HandleDeploymentInput(this);
                     break;
                 case GameState.Discovering:
-                    _discovery.HandleDiscoveryInput();
+                    _discovery.HandleDiscoveryInput(this);
                     break;
                 case GameState.EndingGame:
-                    _endGame.HandleEndOfGameInput();
+                    _endGame.HandleEndOfGameInput(this);
                     break;
                 case GameState.ViewingHighScores:
-                    _highScore.HandleHighScoreInput();
+                    _highScore.HandleHighScoreInput(this);
                     break;
             }
 
@@ -350,25 +355,25 @@ namespace BattleShip
             switch (CurrentState)
             {
                 case GameState.ViewingMainMenu:
-                    _menu.DrawMainMenu();
+                    _menu.DrawMainMenu(this);
                     break;
                 case GameState.ViewingGameMenu:
-                    _menu.DrawGameMenu();
+                    _menu.DrawGameMenu(this);
                     break;
                 case GameState.AlteringSettings:
-                    _menu.DrawSettings();
+                    _menu.DrawSettings(this);
                     break;
                 case GameState.Deploying:
-                    _deployment.DrawDeployment();
+                    _deployment.DrawDeployment(this);
                     break;
                 case GameState.Discovering:
-                    _discovery.DrawDiscovery();
+                    _discovery.DrawDiscovery(this);
                     break;
                 case GameState.EndingGame:
-                    _endGame.DrawEndOfGame();
+                    _endGame.DrawEndOfGame(this);
                     break;
                 case GameState.ViewingHighScores:
-                    _highScore.DrawHighScores();
+                    _highScore.DrawHighScores(this);
                     break;
             }
 

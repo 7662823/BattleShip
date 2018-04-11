@@ -15,21 +15,21 @@ namespace BattleShip
         /// <summary>
         /// Draw the end of the game screen, shows the win/lose state
         /// </summary>
-        public void DrawEndOfGame()
+        public void DrawEndOfGame(GameController con)
         {
 
             Rectangle toDraw = new Rectangle();
             string whatShouldIPrint;
 
-            DrawField(ComputerPlayer.PlayerGrid, ComputerPlayer, true);
-            DrawSmallField(HumanPlayer.PlayerGrid, HumanPlayer);
+            con._utility.DrawField(con.ComputerPlayer.PlayerGrid, con.ComputerPlayer, true, con);
+            con._utility.DrawSmallField(con.HumanPlayer.PlayerGrid, con.HumanPlayer, con);
 
             toDraw.X = 0;
             toDraw.Y = 250;
             toDraw.Width = SwinGame.ScreenWidth();
             toDraw.Height = SwinGame.ScreenHeight();
 
-            if (HumanPlayer.IsDestroyed)
+            if (con.HumanPlayer.IsDestroyed)
             {
                 whatShouldIPrint = "YOU LOSE!";
             }
@@ -38,7 +38,7 @@ namespace BattleShip
                 whatShouldIPrint = "-- WINNER --";
             }
 
-            SwinGame.DrawTextLines(whatShouldIPrint, Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, toDraw);
+            //SwinGame.DrawTextLines(whatShouldIPrint, Color.White, Color.Transparent, con._resources.GameFont("ArialLarge"), FontAlignment.AlignCenter, toDraw);
 
 
         }
@@ -47,12 +47,12 @@ namespace BattleShip
         /// Handle the input during the end of the game. Any interaction
         /// will result in it reading in the highsSwinGame.
         /// </summary>
-        public void HandleEndOfGameInput()
+        public void HandleEndOfGameInput(GameController con)
         {
             if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.ReturnKey) || SwinGame.KeyTyped(KeyCode.EscapeKey))
             {
-                ReadHighScore(HumanPlayer.Score);
-                EndCurrentState();
+                con._highScore.ReadHighScore(con.HumanPlayer.Score, con);
+                con.EndCurrentState();
             }
         }
 

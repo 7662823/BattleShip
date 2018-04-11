@@ -8,7 +8,7 @@ using SwinGameSDK;
 /// 
 namespace BattleShip
 {
-     class UtilityFunctions
+     public class UtilityFunctions
     {
         public const int FIELD_TOP = 122;
         public const int FIELD_LEFT = 349;

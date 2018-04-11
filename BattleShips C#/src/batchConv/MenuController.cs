@@ -68,22 +68,22 @@ namespace BattleShip
         /// <summary>
         /// Handles the processing of user input when the main menu is showing
         /// </summary>
-        public void HandleMainMenuInput()
+        public void HandleMainMenuInput(GameController con)
         {
-            HandleMenuInput(MAIN_MENU, 0, 0);
+            HandleMenuInput(MAIN_MENU, 0, 0, con);
         }
 
         /// <summary>
         /// Handles the processing of user input when the main menu is showing
         /// </summary>
-        public void HandleSetupMenuInput()
+        public void HandleSetupMenuInput(GameController con)
         {
             bool handled;
-            handled = HandleMenuInput(SETUP_MENU, 1, 1);
+            handled = HandleMenuInput(SETUP_MENU, 1, 1, con);
 
             if (!handled)
             {
-                HandleMenuInput(MAIN_MENU, 0, 0);
+                HandleMenuInput(MAIN_MENU, 0, 0, con);
             }
         }
 
@@ -93,9 +93,9 @@ namespace BattleShip
         /// <remarks>
         /// Player can return to the game, surrender, or quit entirely
         /// </remarks>
-        public void HandleGameMenuInput()
+        public void HandleGameMenuInput(GameController con)
         {
-            HandleMenuInput(GAME_MENU, 0, 0);
+            HandleMenuInput(GAME_MENU, 0, 0, con);
         }
 
         /// <summary>
@@ -105,11 +105,11 @@ namespace BattleShip
         /// <param name="level">the vertical level of the menu</param>
         /// <param name="xOffset">the xoffset of the menu</param>
         /// <returns>false if a clicked missed the buttons. This can be used to check prior menus.</returns>
-        private bool HandleMenuInput(int menu, int level, int xOffset)
+        private bool HandleMenuInput(int menu, int level, int xOffset, GameController con)
         {
             if (SwinGame.KeyTyped(KeyCode.EscapeKey))
             {
-                EndCurrentState();
+                con.EndCurrentState();
                 return true;
             }
 
@@ -119,9 +119,9 @@ namespace BattleShip
                 for (i = 0; i <= _menuStructure[menu].Length - 1; i++)
                 {
                     //IsMouseOver the i'th button of the menu
-                    if (IsMouseOverMenu(i, level, xOffset))
+                    if (IsMouseOverMenu(i, level, xOffset, con))
                     {
-                        PerformMenuAction(menu, i);
+                        PerformMenuAction(menu, i, con);
                         return true;
                     }
                 }
@@ -129,7 +129,7 @@ namespace BattleShip
                 if (level > 0)
                 {
                     //none clicked - so end this sub menu
-                    EndCurrentState();
+                    con.EndCurrentState();
                 }
             }
 
@@ -139,23 +139,23 @@ namespace BattleShip
         /// <summary>
         /// Draws the main menu to the screen.
         /// </summary>
-        public void DrawMainMenu()
+        public void DrawMainMenu(GameController con)
         {
             //Clears the Screen to Black
             //SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50)
 
-            DrawButtons(MAIN_MENU);
+            DrawButtons(MAIN_MENU, con);
         }
 
         /// <summary>
         /// Draws the Game menu to the screen
         /// </summary>
-        public void DrawGameMenu()
+        public void DrawGameMenu(GameController con)
         {
             //Clears the Screen to Black
             //SwinGame.DrawText("Paused", Color.White, GameFont("ArialLarge"), 50, 50)
 
-            DrawButtons(GAME_MENU);
+            DrawButtons(GAME_MENU, con);
         }
 
         /// <summary>
@@ -164,22 +164,22 @@ namespace BattleShip
         /// <remarks>
         /// Also shows the main menu
         /// </remarks>
-        public void DrawSettings()
+        public void DrawSettings(GameController con)
         {
             //Clears the Screen to Black
             //SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
 
-            DrawButtons(MAIN_MENU);
-            DrawButtons(SETUP_MENU, 1, 1);
+            DrawButtons(MAIN_MENU, con);
+            DrawButtons(SETUP_MENU, 1, 1, con);
         }
 
         /// <summary>
         /// Draw the buttons associated with a top level menu.
         /// </summary>
         /// <param name="menu">the index of the menu to draw</param>
-        private void DrawButtons(int menu)
+        private void DrawButtons(int menu, GameController con)
         {
-            DrawButtons(menu, 0, 0);
+            DrawButtons(menu, 0, 0, con);
         }
 
         /// <summary>
@@ -193,7 +193,7 @@ namespace BattleShip
         /// of the menu, to enable sub menus. The xOffset repositions the menu horizontally
         /// to allow the submenus to be positioned correctly.
         /// </remarks>
-        private void DrawButtons(int menu, int level, int xOffset)
+        private void DrawButtons(int menu, int level, int xOffset, GameController con)
         {
             int btnTop;
             Rectangle toDraw = new Rectangle();
@@ -210,9 +210,9 @@ namespace BattleShip
                 toDraw.Y = btnTop + TEXT_OFFSET;
                 toDraw.Width = BUTTON_WIDTH;
                 toDraw.Height = BUTTON_HEIGHT;
-                SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
+                //SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Black, con._resources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw); //FIX
 
-                if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset))
+                if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset, con))
                 {
                     SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
                 }
@@ -224,9 +224,9 @@ namespace BattleShip
         /// </summary>
         /// <param name="button">the index of the button to check</param>
         /// <returns>true if the mouse is over that button</returns>
-        private bool IsMouseOverButton(int button)
+        private bool IsMouseOverButton(int button, GameController con)
         {
-            return IsMouseOverMenu(button, 0, 0);
+            return IsMouseOverMenu(button, 0, 0, con);
         }
 
         /// <summary>
@@ -236,12 +236,12 @@ namespace BattleShip
         /// <param name="level">the level of the menu</param>
         /// <param name="xOffset">the xOffset of the menu</param>
         /// <returns>true if the mouse is over the button</returns>
-        private bool IsMouseOverMenu(int button, int level, int xOffset)
+        private bool IsMouseOverMenu(int button, int level, int xOffset, GameController con)
         {
             int btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
             int btnLeft = MENU_LEFT + BUTTON_SEP * (button + xOffset);
 
-            return IsMouseInRectangle(btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+            return con._utility.IsMouseInRectangle(btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
         }
 
         /// <summary>
@@ -249,18 +249,18 @@ namespace BattleShip
         /// </summary>
         /// <param name="menu">the menu that has been clicked</param>
         /// <param name="button">the index of the button that was clicked</param>
-        private void PerformMenuAction(int menu, int button)
+        private void PerformMenuAction(int menu, int button, GameController con)
         {
             switch (menu)
             {
                 case MAIN_MENU:
-                    PerformMainMenuAction(button);
+                    PerformMainMenuAction(button, con);
                     break;
                 case SETUP_MENU:
-                    PerformSetupMenuAction(button);
+                    PerformSetupMenuAction(button, con);
                     break;
                 case GAME_MENU:
-                    PerformGameMenuAction(button);
+                    PerformGameMenuAction(button, con);
                     break;
             }
         }
@@ -269,21 +269,21 @@ namespace BattleShip
         /// The main menu was clicked, perform the button's action.
         /// </summary>
         /// <param name="button">the button pressed</param>
-        private void PerformMainMenuAction(int button)
+        private void PerformMainMenuAction(int button, GameController con)
         {
             switch (button)
             {
                 case MAIN_MENU_PLAY_BUTTON:
-                    StartGame();
+                    con.StartGame();
                     break;
                 case MAIN_MENU_SETUP_BUTTON:
-                    AddNewState(GameState.AlteringSettings);
+                    con.AddNewState(GameState.AlteringSettings);
                     break;
                 case MAIN_MENU_TOP_SCORES_BUTTON:
-                    AddNewState(GameState.ViewingHighScores);
+                    con.AddNewState(GameState.ViewingHighScores);
                     break;
                 case MAIN_MENU_QUIT_BUTTON:
-                    EndCurrentState();
+                    con.EndCurrentState();
                     break;
             }
         }
@@ -292,43 +292,43 @@ namespace BattleShip
         /// The setup menu was clicked, perform the button's action.
         /// </summary>
         /// <param name="button">the button pressed</param>
-        private void PerformSetupMenuAction(int button)
+        private void PerformSetupMenuAction(int button, GameController con)
         {
             switch (button)
             {
                 case SETUP_MENU_EASY_BUTTON:
-                    SetDifficulty(AIOption.Hard);
+                    con.SetDifficulty(AIOption.Hard);
                     break;
                 case SETUP_MENU_MEDIUM_BUTTON:
-                    SetDifficulty(AIOption.Hard);
+                    con.SetDifficulty(AIOption.Hard);
                     break;
                 case SETUP_MENU_HARD_BUTTON:
-                    SetDifficulty(AIOption.Hard);
+                    con.SetDifficulty(AIOption.Hard);
                     break;
             }
             //Always end state - handles exit button as well
-            EndCurrentState();
+            con.EndCurrentState();
         }
 
         /// <summary>
         /// The game menu was clicked, perform the button's action.
         /// </summary>
         /// <param name="button">the button pressed</param>
-        private void PerformGameMenuAction(int button)
+        private void PerformGameMenuAction(int button, GameController con)
         {
             switch (button)
             {
                 case GAME_MENU_RETURN_BUTTON:
-                    EndCurrentState();
+                    con.EndCurrentState();
                     break;
                 case GAME_MENU_SURRENDER_BUTTON:
-                    EndCurrentState();
+                    con.EndCurrentState();
                     //end game menu
                     //end game
-                    EndCurrentState();
+                    con.EndCurrentState();
                     break;
                 case GAME_MENU_QUIT_BUTTON:
-                    AddNewState(GameState.Quitting);
+                    con.AddNewState(GameState.Quitting);
                     break;
             }
         }

@@ -1,6 +1,6 @@
 using System;
 using SwinGameSDK;
-using static SwinGameSDK.SwinGame; // requires mcs version 4+,
+//using static SwinGameSDK.SwinGame; // requires mcs version 4+,
 using BattleShip;
 
 
@@ -13,11 +13,11 @@ namespace MyGame
     {
         public static void Main()
         {
-            SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
+            SwinGame.OpenGraphicsWindow("BattleShips", 800, 600);
             //Load Resources
-            GameController con = new GameController();
-            con.ConInit();
-
+            
+            GameResources res = new GameResources();
+            GameController con = new GameController(res);
             con._resources.LoadResources();
             //LoadResources();
 

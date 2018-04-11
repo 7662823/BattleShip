@@ -16,7 +16,7 @@ namespace BattleShip {
         private const int _WIDTH = 10;
 
         private const int _HEIGHT = 10;
-        private Tile[,] _GameTiles = new Tile[Width - 1, Height - 1];
+        private Tile[,] _GameTiles;// = new Tile[Width - 1, Height - 1];
         private Dictionary<ShipName, Ship> _Ships;
 
         private int _ShipsKilled = 0;
@@ -81,6 +81,7 @@ namespace BattleShip {
         public SeaGrid(Dictionary<ShipName, Ship> ships)
         {
             //fill array with empty Tiles
+            _GameTiles = new Tile[Width - 1, Height - 1];
             int i;
             for (i = 0; i <= Width - 1; i++) {
                 for (int j = 0; j <= Height - 1; j++) {

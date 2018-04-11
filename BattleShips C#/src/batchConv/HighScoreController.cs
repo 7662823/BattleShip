@@ -17,7 +17,7 @@ using static BattleShip.UtilityFunctions;
 /// 
 namespace BattleShip
 {
-    class HighScoreController
+    public class HighScoreController
     {
         private const int NAME_WIDTH = 3;
 
@@ -124,7 +124,7 @@ namespace BattleShip
         /// <summary>
         /// Draws the high scores to the screen.
         /// </summary>
-        public void DrawHighScores()
+        public void DrawHighScores(GameController con)
         {
             const int SCORES_HEADING = 40;
             const int SCORES_TOP = 80;
@@ -133,7 +133,7 @@ namespace BattleShip
             if (_Scores.Count == 0)
                 LoadScores();
 
-            SwinGame.DrawText("   High Scores   ", Color.White, GameFont("Courier"), SCORES_LEFT, SCORES_HEADING);
+            SwinGame.DrawText("   High Scores   ", Color.White, con._resources.GameFont("Courier"), SCORES_LEFT, SCORES_HEADING);
 
             //For all of the scores
             int i;
@@ -148,11 +148,11 @@ namespace BattleShip
                 //for scores 1 - 9 use 01 - 09
                 if (i < 9)
                 {
-                    SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.White, GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+                    SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.White, con._resources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
                 }
                 else
                 {
-                    SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + s.Value, Color.White, GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+                    SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + s.Value, Color.White, con._resources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
                 }
             }
         }
@@ -161,11 +161,11 @@ namespace BattleShip
         /// Handles the user input during the top score screen.
         /// </summary>
         /// <remarks></remarks>
-        public void HandleHighScoreInput()
+        public void HandleHighScoreInput(GameController con)
         {
             if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.EscapeKey) || SwinGame.KeyTyped(KeyCode.ReturnKey))
             {
-                EndCurrentState();
+                con.EndCurrentState();
             }
         }
 
@@ -176,7 +176,7 @@ namespace BattleShip
         /// <remarks>
         /// This verifies if the score is a highsSwinGame.
         /// </remarks>
-        public void ReadHighScore(int value)
+        public void ReadHighScore(int value, GameController con)
         {
             const int ENTRY_TOP = 500;
 
@@ -189,21 +189,21 @@ namespace BattleShip
                 Score s = new Score();
                 s.Value = value;
 
-                AddNewState(GameState.ViewingHighScores);
+                con.AddNewState(GameState.ViewingHighScores);
 
                 int x;
-                x = SCORES_LEFT + SwinGame.TextWidth(GameFont("Courier"), "Name: ");
+                x = SCORES_LEFT + SwinGame.TextWidth(con._resources.GameFont("Courier"), "Name: ");
 
-                SwinGame.StartReadingText(Color.White, NAME_WIDTH, GameFont("Courier"), x, ENTRY_TOP);
+                SwinGame.StartReadingText(Color.White, NAME_WIDTH, con._resources.GameFont("Courier"), x, ENTRY_TOP);
 
                 //Read the text from the user
                 while (SwinGame.ReadingText())
                 {
                     SwinGame.ProcessEvents();
 
-                    DrawBackground();
-                    DrawHighScores();
-                    SwinGame.DrawText("Name: ", Color.White, GameFont("Courier"), SCORES_LEFT, ENTRY_TOP);
+                    con._utility.DrawBackground(con);
+                    DrawHighScores(con);
+                    SwinGame.DrawText("Name: ", Color.White, con._resources.GameFont("Courier"), SCORES_LEFT, ENTRY_TOP);
                     SwinGame.RefreshScreen();
                 }
 
@@ -218,7 +218,7 @@ namespace BattleShip
                 _Scores.Add(s);
                 _Scores.Sort();
 
-                EndCurrentState();
+                con.EndCurrentState();
             }
         }
     }

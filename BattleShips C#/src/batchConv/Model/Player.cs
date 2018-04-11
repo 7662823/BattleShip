@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 /// <summary>
@@ -8,13 +9,14 @@ using System.Linq;
 /// 
 namespace BattleShip
 {
-    public class Player : IEnumerable<Ship>
+    public class Player : IEnumerable //FIX got rid of <Ship>
     {
 
         protected static Random _Random = new Random();
         private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
-        private SeaGrid _playerGrid = new SeaGrid(_Ships);
+        private SeaGrid _playerGrid;// = new SeaGrid(_Ships);
         private ISeaGrid _enemyGrid;
+
 
         protected BattleShipsGame _game;
         private int _shots;
@@ -43,6 +45,7 @@ namespace BattleShip
 
         public Player(BattleShipsGame controller)
         {
+            _playerGrid = new SeaGrid(_Ships);
             _game = controller;
 
             //for each ship add the ships name so the seagrid knows about them
@@ -100,7 +103,7 @@ namespace BattleShip
                 if (name == ShipName.None)
                     return null;
 
-                return _Ships.Item(name);
+                return _Ships[name];
             
         }
 
@@ -164,7 +167,7 @@ namespace BattleShip
         /// has.
         /// </summary>
         /// <returns>A Ship enumerator</returns>
-        public IEnumerator GetEnumerator()
+        public IEnumerator GetEnumerator() //ad
         {
             Ship[] result = new Ship[_Ships.Values.Count];
             _Ships.Values.CopyTo(result, 0);
