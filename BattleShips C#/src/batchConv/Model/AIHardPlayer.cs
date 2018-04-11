@@ -116,12 +116,12 @@ namespace BattleShip
                 switch (_CurrentState)
                 {
                     case AIStates.Searching:
-                        SearchCoords(row, column);
+                        SearchCoords(ref row, ref column);
                         break;
                     case AIStates.TargetingShip:
                         break;
                     case AIStates.HittingShip:
-                        TargetCoords(row, column);
+                        TargetCoords(ref row, ref column);
                         break;
                     default:
                         throw new ApplicationException("AI has gone in an invalid state");

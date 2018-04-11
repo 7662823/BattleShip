@@ -1,30 +1,31 @@
-using SwinGameSDK;
-using System.Collections.Generic;
-using System;
-//using Resources;
+//using SwinGameSDK;
+//using System.Collections.Generic;
+//using System;
+////using Resources;
 
-class GameLogic
-{
-	public void Main()
-	{
-		//Opens a new Graphics Window
-		SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
+//class GameLogic
+//{
+//	public void Main()
+//	{
+//		//Opens a new Graphics Window
+//		SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
 
-        //Load Resources
-        GameResources.LoadResources();
-		LoadResources();
+//        //Load Resources
 
-		SwinGame.PlayMusic(GameMusic("Background"));
+//        GameResources.LoadResources();
+//		LoadResources();
 
-		//Game Loop
-		do {
-			HandleUserInput();
-			DrawScreen();
-		} while (!(SwinGame.WindowCloseRequested() == true | CurrentState == GameState.Quitting));
+//		SwinGame.PlayMusic(GameMusic("Background"));
 
-		SwinGame.StopMusic();
+//		//Game Loop
+//		do {
+//			HandleUserInput();
+//			DrawScreen();
+//		} while (!(SwinGame.WindowCloseRequested() == true | CurrentState == GameState.Quitting));
 
-		//Free Resources and Close Audio, to end the program.
-		FreeResources();
-	}
-}
+//		SwinGame.StopMusic();
+
+//		//Free Resources and Close Audio, to end the program.
+//		FreeResources();
+//	}
+//}

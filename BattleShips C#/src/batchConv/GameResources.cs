@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace BattleShip
 {
-    public static class GameResources
+    public  class GameResources
     {
 
-        private static void LoadFonts()
+        private void LoadFonts()
         {
             NewFont("ArialLarge", "arial.ttf", 80);
             NewFont("Courier", "cour.ttf", 14);
@@ -14,7 +14,7 @@ namespace BattleShip
             NewFont("Menu", "ffaccess.ttf", 8);
         }
 
-        private static void LoadImages()
+        private void LoadImages()
         {
             //Backgrounds
             NewImage("Menu", "main_page.jpg");
@@ -42,7 +42,7 @@ namespace BattleShip
 
         }
 
-        private static void LoadSounds()
+        private void LoadSounds()
         {
             NewSound("Error", "error.wav");
             NewSound("Hit", "hit.wav");
@@ -53,7 +53,7 @@ namespace BattleShip
             NewSound("Lose", "lose.wav");
         }
 
-        private static void LoadMusic()
+        private  void LoadMusic()
         {
             NewMusic("Background", "horrordrone.mp3");
         }
@@ -64,7 +64,7 @@ namespace BattleShip
         /// <param name="font">Name of Font</param>
         /// <returns>The Font Loaded with this Name</returns>
 
-        public static Font GameFont(string font)
+        public  Font GameFont(string font)
         {
             return _Fonts[font];
         }
@@ -75,7 +75,7 @@ namespace BattleShip
         /// <param name="image">Name of image</param>
         /// <returns>The image loaded with this name</returns>
 
-        public static Bitmap GameImage(string image)
+        public  Bitmap GameImage(string image)
         {
             return _Images[image];
         }
@@ -86,7 +86,7 @@ namespace BattleShip
         /// <param name="sound">Name of sound</param>
         /// <returns>The sound with this name</returns>
 
-        public static SoundEffect GameSound(string sound)
+        public  SoundEffect GameSound(string sound)
         {
             return _Sounds[sound];
         }
@@ -97,29 +97,29 @@ namespace BattleShip
         /// <param name="music">Name of music</param>
         /// <returns>The music with this name</returns>
 
-        public static Music GameMusic(string music)
+        public  Music GameMusic(string music)
         {
             return _Music[music];
         }
 
-        private static Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
-        private static Dictionary<string, Font> _Fonts = new Dictionary<string, Font>();
-        private static Dictionary<string, SoundEffect> _Sounds = new Dictionary<string, SoundEffect>();
+        private  Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
+        private  Dictionary<string, Font> _Fonts = new Dictionary<string, Font>();
+        private  Dictionary<string, SoundEffect> _Sounds = new Dictionary<string, SoundEffect>();
 
-        private static Dictionary<string, Music> _Music = new Dictionary<string, Music>();
-        private static Bitmap _Background;
-        private static Bitmap _Animation;
-        private static Bitmap _LoaderFull;
-        private static Bitmap _LoaderEmpty;
-        private static Font _LoadingFont;
+        private  Dictionary<string, Music> _Music = new Dictionary<string, Music>();
+        private  Bitmap _Background;
+        private  Bitmap _Animation;
+        private  Bitmap _LoaderFull;
+        private  Bitmap _LoaderEmpty;
+        private  Font _LoadingFont;
 
-        private static  SoundEffect _StartSound;
+        private   SoundEffect _StartSound;
         /// <summary>
         /// The Resources Class stores all of the Games Media Resources, such as Images, Fonts
         /// Sounds, Music.
         /// </summary>
 
-        public static void LoadResources()
+        public  void LoadResources()
         {
             int width;
             int height;
@@ -153,7 +153,7 @@ namespace BattleShip
             EndLoadingScreen(width, height);
         }
 
-        private static void ShowLoadingScreen()
+        private  void ShowLoadingScreen()
         {
             _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("SplashBack.png", ResourceKind.BitmapResource));
             SwinGame.DrawBitmap(_Background, 0, 0);
@@ -170,7 +170,7 @@ namespace BattleShip
             PlaySwinGameIntro();
         }
 
-        private static void PlaySwinGameIntro()
+        private  void PlaySwinGameIntro()
         {
             const int ANI_CELL_COUNT = 11;
 
@@ -190,7 +190,7 @@ namespace BattleShip
 
         }
 
-        private static void ShowMessage(string message, int number)
+        private  void ShowMessage(string message, int number)
         {
             const int TX = 310;
             const int TY = 493;
@@ -219,7 +219,7 @@ namespace BattleShip
             SwinGame.ProcessEvents();
         }
 
-        private static void EndLoadingScreen(int width, int height)
+        private  void EndLoadingScreen(int width, int height)
         {
             SwinGame.ProcessEvents();
             SwinGame.Delay(500);
@@ -234,37 +234,37 @@ namespace BattleShip
             SwinGame.ChangeScreenSize(width, height);
         }
 
-        private static void NewFont(string fontName, string filename, int size)
+        private  void NewFont(string fontName, string filename, int size)
         {
             _Fonts.Add(fontName, SwinGame.LoadFont(SwinGame.PathToResource(filename, ResourceKind.FontResource), size));
         }
 
-        private static void NewImage(string imageName, string filename)
+        private  void NewImage(string imageName, string filename)
         {
             _Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(filename, ResourceKind.BitmapResource)));
         }
 
-        private static void NewTransparentColorImage(string imageName, string fileName, Color transColor)
+        private  void NewTransparentColorImage(string imageName, string fileName, Color transColor)
         {
             _Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(fileName, ResourceKind.BitmapResource)));
         }
 
-        private static void NewTransparentColourImage(string imageName, string fileName, Color transColor)
+        private  void NewTransparentColourImage(string imageName, string fileName, Color transColor)
         {
             NewTransparentColorImage(imageName, fileName, transColor);
         }
 
-        private static void NewSound(string soundName, string filename)
+        private  void NewSound(string soundName, string filename)
         {
             _Sounds.Add(soundName, Audio.LoadSoundEffect(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
         }
 
-        private static void NewMusic(string musicName, string filename)
+        private  void NewMusic(string musicName, string filename)
         {
             _Music.Add(musicName, Audio.LoadMusic(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
         }
 
-        private static void FreeFonts()
+        private  void FreeFonts()
         {
             //Font obj;
             foreach (Font obj in _Fonts.Values)
@@ -273,7 +273,7 @@ namespace BattleShip
             }
         }
 
-        private static void FreeImages()
+        private  void FreeImages()
         {
             //Bitmap obj;
             foreach (Bitmap obj in _Images.Values)
@@ -282,7 +282,7 @@ namespace BattleShip
             }
         }
 
-        private static void FreeSounds()
+        private  void FreeSounds()
         {
             //SoundEffect obj;
             foreach (SoundEffect obj in _Sounds.Values)
@@ -291,7 +291,7 @@ namespace BattleShip
             }
         }
 
-        private static void FreeMusic()
+        private  void FreeMusic()
         {
             //Music obj;
             foreach (Music obj in _Music.Values)
@@ -300,7 +300,7 @@ namespace BattleShip
             }
         }
 
-        public static void FreeResources()
+        public  void FreeResources()
         {
             FreeFonts();
             FreeImages();

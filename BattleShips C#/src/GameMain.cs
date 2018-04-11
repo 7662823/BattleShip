@@ -2,8 +2,7 @@ using System;
 using SwinGameSDK;
 using static SwinGameSDK.SwinGame; // requires mcs version 4+,
 using BattleShip;
-using static BattleShip.GameResources;
-using static BattleShip.GameController;
+
 
 //using Resources;
 // using SwinGameSDK.SwinGame; // requires mcs version 4+, 
@@ -16,22 +15,25 @@ namespace MyGame
         {
             SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
             //Load Resources
-            LoadResources();
+            GameController con = new GameController();
+            con.ConInit();
+
+            con._resources.LoadResources();
             //LoadResources();
 
-            SwinGame.PlayMusic(GameMusic("Background"));
+            SwinGame.PlayMusic(con._resources.GameMusic("Background"));
 
             //Game Loop
             do
             {
-                HandleUserInput();
-                DrawScreen();
-            } while (!(SwinGame.WindowCloseRequested() == true | CurrentState == GameState.Quitting));
+                con.HandleUserInput();
+                con.DrawScreen();
+            } while (!(SwinGame.WindowCloseRequested() == true | con.CurrentState == GameState.Quitting));
 
             SwinGame.StopMusic();
 
             //Free Resources and Close Audio, to end the program.
-            GameResources.FreeResources();
+            con._resources.FreeResources();
 
             ////Open the game window
             //OpenGraphicsWindow("GameMain", 800, 600);

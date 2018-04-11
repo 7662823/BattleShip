@@ -26,7 +26,7 @@ namespace BattleShip
         /// <value>what the player can see at that location</value>
         /// <returns>what the player can see at that location</returns>
 
-        TileView Item { get; }
+        TileView Item(int x, int y);
         /// <summary>
         /// Mark the indicated tile as shot.
         /// </summary>

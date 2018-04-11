@@ -141,8 +141,9 @@ namespace BattleShip
             {
                 Score s;
 
-                s = _Scores.Item[i];
-               
+                //s = _Scores.Item(i); //original before change
+                s = _Scores[i]; //FIX
+
 
                 //for scores 1 - 9 use 01 - 09
                 if (i < 9)
@@ -183,7 +184,7 @@ namespace BattleShip
                 LoadScores();
 
             //is it a high score
-            if (value > _Scores.Item(_Scores.Count - 1).Value)
+            if (value > _Scores[_Scores.Count - 1].Value)
             {
                 Score s = new Score();
                 s.Value = value;
@@ -210,7 +211,7 @@ namespace BattleShip
 
                 if (s.Name.Length < 3)
                 {
-                    s.Name = s.Name + new string((char)" ", 3 - s.Name.Length);
+                    s.Name = s.Name + new string((char)' ', 3 - s.Name.Length);
                 }
 
                 _Scores.RemoveAt(_Scores.Count - 1);

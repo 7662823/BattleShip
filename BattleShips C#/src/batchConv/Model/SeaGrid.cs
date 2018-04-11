@@ -23,14 +23,14 @@ namespace BattleShip {
         /// <summary>
         /// The sea grid has changed and should be redrawn.
         /// </summary>
-        public event EventHandler ISeaGrid.Changed;
+        public event EventHandler Changed;
 
-	/// <summary>
-	/// The width of the sea grid.
-	/// </summary>
-	/// <value>The width of the sea grid.</value>
-	/// <returns>The width of the sea grid.</returns>
-	public int ISeaGrid.Width {
+        /// <summary>
+        /// The width of the sea grid.
+        /// </summary>
+        /// <value>The width of the sea grid.</value>
+        /// <returns>The width of the sea grid.</returns>
+        public int Width {
             get { return _WIDTH; }
         }
 
@@ -39,7 +39,7 @@ namespace BattleShip {
         /// </summary>
         /// <value>The height of the sea grid</value>
         /// <returns>The height of the sea grid</returns>
-        public int ISeaGrid.Height {
+        public int Height {
             get { return _HEIGHT; }
         }
 
@@ -56,8 +56,8 @@ namespace BattleShip {
         /// <param name="x">x coordinate of the tile</param>
         /// <param name="y">y coordiante of the tile</param>
         /// <returns></returns>
-        public TileView ISeaGrid.Item {
-            get { return _GameTiles[x, y].View; }
+        public TileView Item(int x, int y) {
+             return _GameTiles[x, y].View; 
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace BattleShip {
                 int dRow;
                 int dCol;
 
-                if (direction == direction.LeftRight) {
+                if (direction == Direction.LeftRight) {
                     dRow = 0;
                     dCol = 1;
                 } else {
@@ -136,7 +136,7 @@ namespace BattleShip {
                         throw new InvalidOperationException("Ship can't fit on the board");
                     }
 
-                    _GameTiles(currentRow, currentCol).Ship = newShip;
+                    _GameTiles[currentRow, currentCol].Ship = newShip;
 
                     currentCol += dCol;
                     currentRow += dRow;
@@ -162,7 +162,7 @@ namespace BattleShip {
         /// <param name="row">the row at which is being shot</param>
         /// <param name="col">the cloumn at which is being shot</param>
         /// <returns>An attackresult (hit, miss, sunk, shotalready)</returns>
-        public AttackResult ISeaGrid.HitTile(int row, int col)
+        public AttackResult HitTile(int row, int col)
         {
             try {
                 //tile is already hit

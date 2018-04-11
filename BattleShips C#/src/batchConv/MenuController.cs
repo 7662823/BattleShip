@@ -1,6 +1,4 @@
 using SwinGameSDK;
-using static BattleShip.GameController;
-using static BattleShip.UtilityFunctions;
 
 
 /// <summary>

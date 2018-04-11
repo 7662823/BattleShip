@@ -40,8 +40,7 @@ namespace BattleShip {
         /// <param name="x">tile x coordinate</param>
         /// <param name="y">tile y coordinate</param>
         /// <returns>a tile, either what it actually is, or if it was a ship then return a sea tile</returns>
-        public TileView ISeaGrid.Item {
-            get {
+        public TileView Item(int x, int y) {
                 TileView result = _MyGrid.Item(x, y);
 
                 if (result == TileView.Ship) {
@@ -49,25 +48,24 @@ namespace BattleShip {
                 } else {
                     return result;
                 }
-            }
         }
 
         /// <summary>
         /// Indicates that the grid has been changed
         /// </summary>
-        public event EventHandler ISeaGrid.Changed;
+        public event EventHandler Changed;
 
 	/// <summary>
 	/// Get the width of a tile
 	/// </summary>
-	public int ISeaGrid.Width {
+	public int Width {
             get { return _MyGrid.Width; }
         }
 
         /// <summary>
         /// Get the height of the tile
         /// </summary>
-        public int ISeaGrid.Height {
+        public int Height {
             get { return _MyGrid.Height; }
         }
 
@@ -77,7 +75,7 @@ namespace BattleShip {
         /// <param name="row">the row its hitting at</param>
         /// <param name="col">the column its hitting at</param>
         /// <returns>The result from hitting that tile</returns>
-        public AttackResult ISeaGrid.HitTile(int row, int col)
+        public AttackResult HitTile(int row, int col)
         {
             return _MyGrid.HitTile(row, col);
         }

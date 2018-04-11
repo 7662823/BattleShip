@@ -95,15 +95,13 @@ namespace BattleShip
         /// <value>The ship</value>
         /// <returns>The ship with the indicated name</returns>
         /// <remarks>The none ship returns nothing/null</remarks>
-        public Ship Ship
+        public Ship Ship(ShipName name)
         {
-            get
-            {
                 if (name == ShipName.None)
                     return null;
 
                 return _Ships.Item(name);
-            }
+            
         }
 
         /// <summary>
@@ -151,7 +149,7 @@ namespace BattleShip
         /// has.
         /// </summary>
         /// <returns>A Ship enumerator</returns>
-        public IEnumerator<Ship> IEnumerable<Ship>.GetShipEnumerator()
+        public IEnumerator<Ship> GetShipEnumerator()
         {
             Ship[] result = new Ship[_Ships.Values.Count];
             _Ships.Values.CopyTo(result, 0);
@@ -166,7 +164,7 @@ namespace BattleShip
         /// has.
         /// </summary>
         /// <returns>A Ship enumerator</returns>
-        public IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             Ship[] result = new Ship[_Ships.Values.Count];
             _Ships.Values.CopyTo(result, 0);
