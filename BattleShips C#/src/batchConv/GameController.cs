@@ -1,6 +1,7 @@
 using SwinGameSDK;
 using System;
 using System.Collections.Generic;
+using Battleship;
 
 /// <summary>
 /// The GameController is responsible for controlling the game,
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 /// </summary>
 public class GameController
 {
-
+    public GameResources res = new GameResources();
 	private BattleShipsGame _theGame;
 	private Player _human;
 
@@ -46,7 +47,7 @@ public class GameController
 		get { return _ai; }
 	}
 
-	GameController()
+	public GameController()
 	{
 		//bottom state will be quitting. If player exits main menu then the game is over
 		_state.Push(GameState.Quitting);
