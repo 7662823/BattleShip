@@ -8,7 +8,7 @@ using BattleShip;
 //using Resources;
 // using SwinGameSDK.SwinGame; // requires mcs version 4+, 
 
-namespace BattleShip
+namespace MyGame
 {
     public class GameMain
     {
