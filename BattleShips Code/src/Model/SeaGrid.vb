@@ -85,7 +85,7 @@ Public Class SeaGrid
     Public Sub New(ByVal ships As Dictionary(Of ShipName, Ship))
         'fill array with empty Tiles
         Dim i as Integer
-For i  = 0 To Width - 1
+        For i = 0 To Width - 1
             For j As Integer = 0 To Height - 1
                 _GameTiles(i, j) = New Tile(i, j, Nothing)
             Next
