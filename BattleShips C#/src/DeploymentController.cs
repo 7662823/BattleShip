@@ -79,19 +79,22 @@ namespace BattleShip
                 {
                     DoDeployClick(con);
                 }
-
+                //clicked ready button
                 if (con.HumanPlayer.ReadyToDeploy & con._utility.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
                 {
                     con.EndDeployment();
                 }
+                //select updown direction of ship
                 else if (con._utility.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
                 {
-                    _currentDirection = Direction.LeftRight;
+                    _currentDirection = Direction.UpDown; //FIX Changed from LeftRight to UpDown
                 }
+                //select leftright direction of the ship
                 else if (con._utility.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
                 {
                     _currentDirection = Direction.LeftRight;
                 }
+                //clicked randomize button
                 else if (con._utility.IsMouseInRectangle(RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP, RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
                 {
                     con.HumanPlayer.RandomizeDeployment();
@@ -116,7 +119,7 @@ namespace BattleShip
             //Calculate the row/col clicked
             int row;
             int col;
-            row = Convert.ToInt32(Math.Floor((mouse.Y) / (CELL_HEIGHT + CELL_GAP)));
+            row = Convert.ToInt32(Math.Floor((mouse.Y - FIELD_TOP) / (CELL_HEIGHT + CELL_GAP))); //FIX subtracted mouse.y by the field_top
             col = Convert.ToInt32(Math.Floor((mouse.X - FIELD_LEFT) / (CELL_WIDTH + CELL_GAP)));
 
             if (row >= 0 & row < con.HumanPlayer.PlayerGrid.Height)
