@@ -271,7 +271,7 @@ namespace BattleShip
 
         public  void AddExplosion(int row, int col, GameController con)
         {
-            AddAnimation(row, col, "Splash", con);
+            AddAnimation(row, col, "Explosion", con); //FIX change from "Splash" to Explosion
         }
 
         public  void AddSplash(int row, int col, GameController con)
@@ -290,13 +290,16 @@ namespace BattleShip
             imgObj.SetCellDetails(40, 40, 3, 3, 7);
 
             AnimationScript animation;
-            animation = SwinGame.LoadAnimationScript("splash.txt");
+            
+                animation = SwinGame.LoadAnimationScript("splash.txt");
 
             s = SwinGame.CreateSprite(imgObj, animation);
             s.X = FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP);
             s.Y = FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP);
-
-            s.StartAnimation("splash");
+            if (image == "Explosion")               //FIX allowed explosion aimation to play by adding in statement
+                s.StartAnimation("explosion");
+            else
+                s.StartAnimation("splash");
             _Animations.Add(s);
         }
 
