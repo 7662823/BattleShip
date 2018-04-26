@@ -297,10 +297,10 @@ namespace BattleShip
             switch (button)
             {
                 case SETUP_MENU_EASY_BUTTON:
-                    con.SetDifficulty(AIOption.Hard);
+                    con.SetDifficulty(AIOption.Easy);
                     break;
                 case SETUP_MENU_MEDIUM_BUTTON:
-                    con.SetDifficulty(AIOption.Hard);
+                    con.SetDifficulty(AIOption.Medium);
                     break;
                 case SETUP_MENU_HARD_BUTTON:
                     con.SetDifficulty(AIOption.Hard);
