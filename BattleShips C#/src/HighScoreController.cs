@@ -53,6 +53,7 @@ namespace BattleShip
 
 
         private List<Score> _Scores = new List<Score>();
+		private List<Score> _ScoresHigh = new List<Score>();
         /// <summary>
         /// Loads the scores from the highscores text file.
         /// </summary>
@@ -161,6 +162,50 @@ namespace BattleShip
         /// Handles the user input during the top score screen.
         /// </summary>
         /// <remarks></remarks>
+		public void LoadHighScore()
+		{
+			string filename;
+			filename = SwinGame.PathToResource("highscores.txt");
+
+			StreamReader input;
+			input = new StreamReader(filename);
+
+			//Read in the # of scores
+			int numScores;
+			numScores = Convert.ToInt32(input.ReadLine());
+
+			_Scores.Clear();
+
+			int i;
+
+			for (i = 1; i <= numScores; i++)
+			{
+				Score s;
+				string line;
+
+				line = input.ReadLine();
+
+				s.Name = line.Substring(0, NAME_WIDTH);
+				s.Value = Convert.ToInt32(line.Substring(NAME_WIDTH));
+				_ScoresHigh.Add(s);
+			}
+			input.Close();
+		}
+		public void DrawHighScore(GameResources resources)
+		{
+			int highscore = 0;
+			string name = "";
+			foreach(Score i in _ScoresHigh)
+			{
+				if(highscore < i.Value)
+				{
+					highscore = i.Value;
+					name = i.Name;
+				}
+			}
+			SwinGame.DrawText("Highscore: " + name + " (" + highscore + ")", Color.White, resources.GameFont("Courier"), 600, 20);
+
+		}
         public void HandleHighScoreInput(GameController con)
         {
             if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN))
