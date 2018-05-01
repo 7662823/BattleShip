@@ -194,8 +194,10 @@ C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips
 C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\bin\Debug\MyGame.exe
 C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\bin\Debug\MyGame.pdb
 C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\bin\Debug\SwinGame.dll
-C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.csprojResolveAssemblyReference.cache
 C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.csproj.CoreCompileInputs.cache
 C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.csproj.CopyComplete
 C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.exe
 C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.pdb
+C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\bin\Debug\Resources\images\Computer.png
+C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\bin\Debug\Resources\images\Playerturn.png
+C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.csprojResolveAssemblyReference.cache

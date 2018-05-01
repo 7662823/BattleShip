@@ -140,6 +140,8 @@ namespace BattleShip
             }
         }
 
+        
+
         /// <summary>
         /// Draws the deployment screen showing the field and the ships
         /// that the player can deploy.

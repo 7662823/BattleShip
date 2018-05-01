@@ -12,7 +12,7 @@ namespace BattleShip
 {
     class DiscoveryController
     {
-
+       
         /// <summary>
         /// Handles input during the discovery phase of the game.
         /// </summary>
@@ -60,6 +60,19 @@ namespace BattleShip
         /// <summary>
         /// Draws the game during the attack phase.
         /// </summary>s
+
+        public void DrawCustomAdditions(GameController con)
+        {
+            if (con._playerTurn == true)
+            {
+                SwinGame.DrawBitmap(con._resources.GameImage("PlayerTurn"), 0, 0);
+            }
+            else
+            {
+                SwinGame.DrawBitmap(con._resources.GameImage("AITurn"), 0, 0);
+            }
+        }
+
         public void DrawDiscovery(GameController con)
         {
             const int SCORES_LEFT = 172;
@@ -87,7 +100,8 @@ namespace BattleShip
 
             //Draw Score
             SwinGame.DrawText(con.HumanPlayer.Score.ToString(), Color.White, con._resources.GameFont("Menu"), SCORES_LEFT, SCORE_TOP);
-
+            //Draw Turn
+            DrawCustomAdditions(con);
         }
 
     }
