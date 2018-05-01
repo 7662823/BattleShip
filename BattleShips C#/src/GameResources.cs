@@ -40,6 +40,10 @@ namespace BattleShip
             NewImage("Explosion", "explosion.png");
             NewImage("Splash", "splash.png");
 
+            //Custom additions
+            NewImage("AITurn", "Computer.png");
+            NewImage("PlayerTurn", "Playerturn.png");
+
         }
 
         private void LoadSounds()

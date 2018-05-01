@@ -17,7 +17,7 @@ namespace BattleShip
 
         private BattleShipsGame _theGame;
         private Player _human;
-
+        public bool _playerTurn = true;
         private AIPlayer _ai;
 
         private Stack<GameState> _state;
@@ -295,7 +295,12 @@ namespace BattleShip
             {
                 case ResultOfAttack.Miss:
                     if (object.ReferenceEquals(_theGame.Player, ComputerPlayer))
+                    {
+                        _playerTurn = false;
                         AIAttack();
+                    }
+                    else { _playerTurn = true; }
+                        
                     break;
                 case ResultOfAttack.GameOver:
                     SwitchState(GameState.EndingGame);
