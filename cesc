@@ -1,0 +1,207 @@
+[1mdiff --git a/BattleShips C#/bin/Debug/MyGame.exe b/BattleShips C#/bin/Debug/MyGame.exe[m
+[1mindex 5e0eb05..f7a67a4 100644[m
+Binary files a/BattleShips C#/bin/Debug/MyGame.exe and b/BattleShips C#/bin/Debug/MyGame.exe differ
+[1mdiff --git a/BattleShips C#/bin/Debug/MyGame.pdb b/BattleShips C#/bin/Debug/MyGame.pdb[m
+[1mindex a52306e..00ac792 100644[m
+Binary files a/BattleShips C#/bin/Debug/MyGame.pdb and b/BattleShips C#/bin/Debug/MyGame.pdb differ
+[1mdiff --git a/BattleShips C#/obj/x86/Debug/MyGame.csproj.FileListAbsolute.txt b/BattleShips C#/obj/x86/Debug/MyGame.csproj.FileListAbsolute.txt[m
+[1mindex fd172ea..ebbf01e 100644[m
+[1m--- a/BattleShips C#/obj/x86/Debug/MyGame.csproj.FileListAbsolute.txt[m	
+[1m+++ b/BattleShips C#/obj/x86/Debug/MyGame.csproj.FileListAbsolute.txt[m	
+[36m@@ -199,3 +199,74 @@[m [mC:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips[m
+ C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.csproj.CopyComplete[m
+ C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.exe[m
+ C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.pdb[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.csprojResolveAssemblyReference.cache[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.exe[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\obj\x86\Debug\MyGame.pdb[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\.DS_Store[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\highscores.txt[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\SwinGame.icns[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\SwinGame.ico[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\animations\.DS_Store[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\animations\splash.txt[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\animations\startup.txt[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\bundles\FileDialog.txt[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\bundles\splash.txt[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\fonts\arial.ttf[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\fonts\cour.ttf[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\fonts\ffaccess.ttf[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\fonts\maven_pro_regular.ttf[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\.DS_Store[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\deploy.jpg[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\deploy_button_hl.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\deploy_dir_button_horiz.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\deploy_dir_button_vert.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\deploy_play_button.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\deploy_randomize_button.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\discover.jpg[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\explosion.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\fdFile.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\fdFolder.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\FileDialog_Active.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\FileDialog_Background.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\FileDialog_Inactive.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\FileDialog_Scroll.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\FileDialog_ScrollSmall.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\loader_empty.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\loader_full.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\main_page.jpg[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_horiz_1.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_horiz_2.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_horiz_3.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_horiz_4.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_horiz_5.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_vert_1.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_vert_2.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_vert_3.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_vert_4.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\ship_deploy_vert_5.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\splash.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\SplashBack.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\Swinburne.jpg[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\SwinGameAni.jpg[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\images\SwinGameAni.png[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\panels\FileDialog.txt[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\background.mp3[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\error.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\hit.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\lose.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\sink.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\siren.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\SwinGameStart.ogg[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\SwinGameStart.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\watershot.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\Resources\sounds\winner.wav[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\MyGame.exe.config[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\MyGame.exe[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\MyGame.pdb[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\mscorlib.dll[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\SwinGame.dll[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normidna.nlp[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfc.nlp[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfd.nlp[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfkc.nlp[m
+[32m+[m[32mC:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfkd.nlp[m
+[1mdiff --git a/BattleShips C#/obj/x86/Debug/MyGame.csprojResolveAssemblyReference.cache b/BattleShips C#/obj/x86/Debug/MyGame.csprojResolveAssemblyReference.cache[m
+[1mindex f246484..c07132f 100644[m
+Binary files a/BattleShips C#/obj/x86/Debug/MyGame.csprojResolveAssemblyReference.cache and b/BattleShips C#/obj/x86/Debug/MyGame.csprojResolveAssemblyReference.cache differ
+[1mdiff --git a/BattleShips C#/obj/x86/Debug/MyGame.exe b/BattleShips C#/obj/x86/Debug/MyGame.exe[m
+[1mindex 5e0eb05..f7a67a4 100644[m
+Binary files a/BattleShips C#/obj/x86/Debug/MyGame.exe and b/BattleShips C#/obj/x86/Debug/MyGame.exe differ
+[1mdiff --git a/BattleShips C#/obj/x86/Debug/MyGame.pdb b/BattleShips C#/obj/x86/Debug/MyGame.pdb[m
+[1mindex a52306e..00ac792 100644[m
+Binary files a/BattleShips C#/obj/x86/Debug/MyGame.pdb and b/BattleShips C#/obj/x86/Debug/MyGame.pdb differ
+[1mdiff --git a/BattleShips C#/src/GameController.cs b/BattleShips C#/src/GameController.cs[m
+[1mindex bf00eef..f0b744a 100644[m
+[1m--- a/BattleShips C#/src/GameController.cs[m	
+[1m+++ b/BattleShips C#/src/GameController.cs[m	
+[36m@@ -62,6 +62,8 @@[m [mnamespace BattleShip[m
+             _discovery = new DiscoveryController();[m
+             _endGame = new EndingGameController();[m
+             _highScore = new HighScoreController();[m
+[32m+[m
+[32m+[m			[32m_highScore.LoadHighScore();[m
+         }[m
+ [m
+         public  GameState CurrentState[m
+[36m@@ -343,7 +345,21 @@[m [mnamespace BattleShip[m
+ [m
+             _utility.UpdateAnimations();[m
+         }[m
+[31m-[m
+[32m+[m		[32mpublic void DrawAIdifficulty()[m
+[32m+[m		[32m{[m
+[32m+[m			[32mswitch (_aiSetting)[m
+[32m+[m			[32m{[m
+[32m+[m				[32mcase AIOption.Easy:[m
+[32m+[m					[32mSwinGame.DrawText("Difficulty: Easy", Color.White, _resources.GameFont("Courier"), 600, 550);[m
+[32m+[m					[32mbreak;[m
+[32m+[m				[32mcase AIOption.Medium:[m
+[32m+[m					[32mSwinGame.DrawText("Difficulty: Medium", Color.White, _resources.GameFont("Courier"), 600, 550);[m
+[32m+[m					[32mbreak;[m
+[32m+[m				[32mcase AIOption.Hard:[m
+[32m+[m					[32mSwinGame.DrawText("Difficulty: Hard", Color.White, _resources.GameFont("Courier"), 600, 550);[m
+[32m+[m					[32mbreak;[m
+[32m+[m			[32m}[m
+[32m+[m		[32m}[m
+         /// <summary>[m
+         /// Draws the current state of the game to the screen.[m
+         /// </summary>[m
+[36m@@ -367,9 +383,13 @@[m [mnamespace BattleShip[m
+                     break;[m
+                 case GameState.Deploying:[m
+                     _deployment.DrawDeployment(this);[m
+[32m+[m					[32m_highScore.DrawHighScore(_resources);[m
+[32m+[m					[32mDrawAIdifficulty();[m
+                     break;[m
+                 case GameState.Discovering:[m
+                     _discovery.DrawDiscovery(this);[m
+[32m+[m					[32m_highScore.DrawHighScore(_resources);[m
+[32m+[m					[32mDrawAIdifficulty();[m
+                     break;[m
+                 case GameState.EndingGame:[m
+                     _endGame.DrawEndOfGame(this);[m
+[1mdiff --git a/BattleShips C#/src/HighScoreController.cs b/BattleShips C#/src/HighScoreController.cs[m
+[1mindex 04f6c4a..067a3ce 100644[m
+[1m--- a/BattleShips C#/src/HighScoreController.cs[m	
+[1m+++ b/BattleShips C#/src/HighScoreController.cs[m	
+[36m@@ -53,6 +53,7 @@[m [mnamespace BattleShip[m
+ [m
+ [m
+         private List<Score> _Scores = new List<Score>();[m
+[32m+[m		[32mprivate List<Score> _ScoresHigh = new List<Score>();[m
+         /// <summary>[m
+         /// Loads the scores from the highscores text file.[m
+         /// </summary>[m
+[36m@@ -161,6 +162,50 @@[m [mnamespace BattleShip[m
+         /// Handles the user input during the top score screen.[m
+         /// </summary>[m
+         /// <remarks></remarks>[m
+[32m+[m		[32mpublic void LoadHighScore()[m
+[32m+[m		[32m{[m
+[32m+[m			[32mstring filename;[m
+[32m+[m			[32mfilename = SwinGame.PathToResource("highscores.txt");[m
+[32m+[m
+[32m+[m			[32mStreamReader input;[m
+[32m+[m			[32minput = new StreamReader(filename);[m
+[32m+[m
+[32m+[m			[32m//Read in the # of scores[m
+[32m+[m			[32mint numScores;[m
+[32m+[m			[32mnumScores = Convert.ToInt32(input.ReadLine());[m
+[32m+[m
+[32m+[m			[32m_Scores.Clear();[m
+[32m+[m
+[32m+[m			[32mint i;[m
+[32m+[m
+[32m+[m			[32mfor (i = 1; i <= numScores; i++)[m
+[32m+[m			[32m{[m
+[32m+[m				[32mScore s;[m
+[32m+[m				[32mstring line;[m
+[32m+[m
+[32m+[m				[32mline = input.ReadLine();[m
+[32m+[m
+[32m+[m				[32ms.Name = line.Substring(0, NAME_WIDTH);[m
+[32m+[m				[32ms.Value = Convert.ToInt32(line.Substring(NAME_WIDTH));[m
+[32m+[m				[32m_ScoresHigh.Add(s);[m
+[32m+[m			[32m}[m
+[32m+[m			[32minput.Close();[m
+[32m+[m		[32m}[m
+[32m+[m		[32mpublic void DrawHighScore(GameResources resources)[m
+[32m+[m		[32m{[m
+[32m+[m			[32mint highscore = 0;[m
+[32m+[m			[32mstring name = "";[m
+[32m+[m			[32mforeach(Score i in _ScoresHigh)[m
+[32m+[m			[32m{[m
+[32m+[m				[32mif(highscore < i.Value)[m
+[32m+[m				[32m{[m
+[32m+[m					[32mhighscore = i.Value;[m
+[32m+[m					[32mname = i.Name;[m
+[32m+[m				[32m}[m
+[32m+[m			[32m}[m
+[32m+[m			[32mSwinGame.DrawText("Highscore: " + name + " (" + highscore + ")", Color.White, resources.GameFont("Courier"), 600, 20);[m
+[32m+[m
+[32m+[m		[32m}[m
+         public void HandleHighScoreInput(GameController con)[m
+         {[m
+             if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN))[m
