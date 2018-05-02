@@ -62,6 +62,8 @@ namespace BattleShip
             _discovery = new DiscoveryController();
             _endGame = new EndingGameController();
             _highScore = new HighScoreController();
+
+			_highScore.LoadHighScore();
         }
 
         public  GameState CurrentState
@@ -348,7 +350,21 @@ namespace BattleShip
 
             _utility.UpdateAnimations();
         }
-
+		public void DrawAIdifficulty()
+		{
+			switch (_aiSetting)
+			{
+				case AIOption.Easy:
+					SwinGame.DrawText("Difficulty: Easy", Color.White, _resources.GameFont("Courier"), 600, 550);
+					break;
+				case AIOption.Medium:
+					SwinGame.DrawText("Difficulty: Medium", Color.White, _resources.GameFont("Courier"), 600, 550);
+					break;
+				case AIOption.Hard:
+					SwinGame.DrawText("Difficulty: Hard", Color.White, _resources.GameFont("Courier"), 600, 550);
+					break;
+			}
+		}
         /// <summary>
         /// Draws the current state of the game to the screen.
         /// </summary>
@@ -372,9 +388,13 @@ namespace BattleShip
                     break;
                 case GameState.Deploying:
                     _deployment.DrawDeployment(this);
+					_highScore.DrawHighScore(_resources);
+					DrawAIdifficulty();
                     break;
                 case GameState.Discovering:
                     _discovery.DrawDiscovery(this);
+					_highScore.DrawHighScore(_resources);
+					DrawAIdifficulty();
                     break;
                 case GameState.EndingGame:
                     _endGame.DrawEndOfGame(this);
