@@ -270,3 +270,5 @@ C:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfc.nlp
 C:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfd.nlp
 C:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfkc.nlp
 C:\Users\Archie\BattleShip\BattleShips C#\bin\Debug\normnfkd.nlp
+C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\bin\Debug\Resources\images\Computer.png
+C:\Users\Sean\Documents\Uni\2018\DevProject\BattleShipGit\BattleShip\BattleShips C#\bin\Debug\Resources\images\Playerturn.png
