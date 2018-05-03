@@ -67,6 +67,8 @@ namespace BattleShip
                 con.HumanPlayer.RandomizeDeployment();
             }
 
+
+
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
             {
                 ShipName selected;
