@@ -331,6 +331,7 @@ namespace BattleShip
                     break;
                 case GameState.Deploying:
                     _deployment.HandleDeploymentInput(this);
+					_menu.HandleSetupMenuInput(this);
                     break;
                 case GameState.Discovering:
                     _discovery.HandleDiscoveryInput(this);
@@ -384,6 +385,7 @@ namespace BattleShip
                 case GameState.Deploying:
                     _deployment.DrawDeployment(this);
 					_highScore.DrawHighScore(_resources);
+					_menu.DrawSetting(this);
 					DrawAIdifficulty();
                     break;
                 case GameState.Discovering:

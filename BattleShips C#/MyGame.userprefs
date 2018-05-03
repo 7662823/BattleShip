@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{A482CE99-CCB9-462A-8D2A-2A6D4619BC98}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.ItemProperties.MyGame PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameController.cs">
+    <Files>
+      <File FileName="src\GameController.cs" Line="305" Column="14" NotebookId="1" />
+      <File FileName="src\UtilityFunctions.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="src\GameState.cs" Line="28" Column="9" NotebookId="1" />
+      <File FileName="src\GameLogic.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="src\EndingGameController.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="src\DeploymentController.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="src\GameMain.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="src\GameResources.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="src\HighScoreController.cs" Line="1" Column="1" NotebookId="1" />
+    </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="538" Y="0" Width="640" Height="480">
+        <Files>
+          <File FileName="src\MenuController.cs" Line="108" Column="22" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -172,6 +172,14 @@ namespace BattleShip
             DrawButtons(MAIN_MENU, con);
             DrawButtons(SETUP_MENU, 1, 1, con);
         }
+		public void DrawSetting(GameController con)
+		{
+			//Clears the Screen to Black
+			//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
+
+
+			DrawButtons(SETUP_MENU, 1, 1, con);
+		}
 
         /// <summary>
         /// Draw the buttons associated with a top level menu.
