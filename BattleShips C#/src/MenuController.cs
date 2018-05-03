@@ -126,7 +126,8 @@ namespace BattleShip
                     }
                 }
 
-                if (level > 0)
+                
+                if (level > 0 && con.CurrentState == GameState.AlteringSettings)
                 {
                     //none clicked - so end this sub menu
                     con.EndCurrentState();
@@ -220,7 +221,7 @@ namespace BattleShip
                 toDraw.Height = BUTTON_HEIGHT;
                 SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Black, con._resources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw); //FIX
 
-                if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset, con))
+                if (SwinGame.MouseDown(MouseButton.LeftButton) && IsMouseOverMenu(i, level, xOffset, con))
                 {
                     SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
                 }
